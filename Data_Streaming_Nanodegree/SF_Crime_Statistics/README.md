@@ -12,7 +12,6 @@ Analyze SF Crime incidents with Kafka and Spark Streaming.
 
 **NOTE:** Topic used is "sfpd.call.log"
 
-
 config server.property set:
 
 ```
@@ -22,9 +21,16 @@ offsets.topic.replication.factor=1
 
 ### Run Environment
 
+Start zookeeper and kafka:
+
 ```
 /usr/bin/zookeeper-server-start config/zookeeper.properties
 /usr/bin/kafka-server-start config/server.properties
+```
+
+Start producer:
+
+```
 python kafka_server.py
 ```
 Consuming from topic with console-consumer:
@@ -42,9 +48,16 @@ python consumer_server.py
 ![consumer_output](https://github.com/CGodinho/Udacity/blob/master/Data_Streaming_Nanodegree/SF_Crime_Statistics/pics/consumer_server_output.png)
 
 
-## Step2
+## Step 2
 
-Python consumer avaiable in: consumer_server.py
+###Changed files
+ + data_stream.py
+
+### Run Environment
+
+```
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py
+```
 
 
 ## Step 3
