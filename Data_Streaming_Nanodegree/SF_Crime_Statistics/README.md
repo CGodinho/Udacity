@@ -39,7 +39,7 @@ Consuming from topic with python application (consumer_server.py):
 python consumer_server.py
 ```
 
-[consumer_output](./pics/consumer_server_output.png)
+[consumer_output](https://github.com/CGodinho/Udacity/blob/master/Data_Streaming_Nanodegree/SF_Crime_Statistics/pics/consumer_server_output.png)
 
 
 ## Step2
