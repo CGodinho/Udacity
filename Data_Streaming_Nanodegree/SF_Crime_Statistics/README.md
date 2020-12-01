@@ -59,6 +59,12 @@ python consumer_server.py
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py
 ```
 
+### Spark UI
+
+SparkContext launches its own instance of Web UI at **http://[driver]:4040**. Port is auto increased if already taken.
+
+The port may be changed with property **spark.ui.port setting**.
+
 
 ## Step 3
 
