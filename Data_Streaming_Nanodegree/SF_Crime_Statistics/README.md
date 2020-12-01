@@ -50,7 +50,7 @@ python consumer_server.py
 
 ## Step 2
 
-###Changed files
+### Changed files
  + data_stream.py
 
 ### Run Environment
