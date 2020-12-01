@@ -65,6 +65,7 @@ SparkContext launches its own instance of Web UI at **http://[driver]:4040**. Po
 
 The port may be changed with property **spark.ui.port setting**.
 
+**NOTE:** not possible to open a browser in workspace environment.
 
 ## Step 3
 
