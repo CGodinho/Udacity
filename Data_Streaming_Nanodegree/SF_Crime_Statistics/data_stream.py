@@ -20,7 +20,6 @@ schema = StructType([StructField("crime_id", StringType(), True),
                      StructField("address_type", StringType(), True),
                      StructField("common_location", StringType(), True)])
 
-
 def run_spark_job(spark):
 
     print('>>> ---------------------- SETUP STREAM ------------------------')
@@ -109,11 +108,12 @@ def run_spark_job(spark):
 if __name__ == "__main__":
     logger = logging.getLogger(__name__)
 
-    # TODO Create Spark in Standalone mode
+    # Create Spark in Standalone mode
     spark = SparkSession \
         .builder \
         .master("local[*]") \
         .appName("KafkaSparkStructuredStreaming") \
+        .config("spark.ui.port", 5000) \
         .getOrCreate()
 
     logger.info("Spark started")
