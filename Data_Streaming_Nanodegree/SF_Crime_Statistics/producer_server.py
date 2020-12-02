@@ -12,21 +12,16 @@ class ProducerServer(KafkaProducer):
         self.topic = topic
 
 
-    # Poducing data to the topic
-    def generate_data(self):
-        counter = 0
-        with open(self.input_file) as f:
-            for line in f:
-                message = self.dict_to_binary(line)
-                # Send created message from log, over topic
-                self.send(self.topic, message)
-                time.sleep(0.1)
-                if counter % 100 == 0:
-                    print("Message: " + str(counter))
-                counter = counter + 1
-
-
     # Return the json dictionary to binary
-    def dict_to_binary(self, json_dict):
-        return json.dumps(json_dict).encode('utf-8')
-        
+    def generate_data(self):
+        with open(self.input_file) as f:
+            json_array = json.load(f)
+            for item in json_array:
+                message = self.dict_to_binary(item)
+                self.send(self.topic, message)
+                time.sleep(0.5)
+
+
+    # Return the json dictionary to binary                
+    def dict_to_binary(self, json_dict) -> bytes:
+        return json.dumps(json_dict).encode('utf-8')        
