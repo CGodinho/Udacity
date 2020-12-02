@@ -59,21 +59,25 @@ python consumer_server.py
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py
 ```
 
-### Spark UI
+### Requested Output 
+The aggregation result is:
+ 
+![spark_write_output_stream](https://github.com/CGodinho/Udacity/blob/master/Data_Streaming_Nanodegree/SF_Crime_Statistics/pics/spark_write_output_stream.png)
 
+
+### Spark UI
 SparkContext launches its own instance of Web UI at **http://[driver]:4040**. Port is auto increased if already taken.
 
-The port may be changed with property **spark.ui.port setting**.
+The port has been changed in app with property **spark.ui.port setting** to *3000*.
 
-**NOTE:** not possible to open a browser in workspace environment.
+![spark_ui](https://github.com/CGodinho/Udacity/blob/master/Data_Streaming_Nanodegree/SF_Crime_Statistics/pics/spark_ui.png)
+
 
 ## Step 3
-
 
 *Question: How did changing values on the SparkSession property parameters affect the throughput and latency of the data?*
 
 As like any streaming system, as latency increases throughput is reduced. Next batch will take longer to be processed and the overall throughput decreases.
-
 
 *Question: What were the 2-3 most efficient SparkSession property key/value pairs? Through testing multiple variations on values, how can you tell these were the most optimal?*
 

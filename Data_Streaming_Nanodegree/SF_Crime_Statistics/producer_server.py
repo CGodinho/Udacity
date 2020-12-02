@@ -14,8 +14,8 @@ class ProducerServer(KafkaProducer):
 
     # Return the json dictionary to binary
     def generate_data(self):
-        with open(self.input_file) as f:
-            json_array = json.load(f)
+        with open(self.input_file) as line:
+            json_array = json.load(line)
             for item in json_array:
                 message = self.dict_to_binary(item)
                 self.send(self.topic, message)
