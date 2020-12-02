@@ -10,7 +10,7 @@ Analyze SF Crime incidents with Kafka and Spark Streaming.
  + producer_server.py
  +  Kafka_server.py
 
-**NOTE:** Topic used is "sfpd.call.log"
+**NOTE:** Topic used is *sfpd.call.log*
 
 config server.property set:
 
@@ -33,13 +33,16 @@ Start producer:
 ```
 python kafka_server.py
 ```
-Consuming from topic with console-consumer:
+
+### Consuming
+
+From topic with console-consumer:
 
 ```
 /usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic sfpd.call.log --from-beginning --group "simple_tester"
 ```
 
-Consuming from topic with python application (consumer_server.py):
+From topic with python application (consumer_server.py):
 
 ```
 python consumer_server.py
